@@ -5,7 +5,7 @@ compatibility_date = "2024-11-01"
 # Crie com: npx wrangler kv namespace create SESSIONS  → cole o id abaixo
 [[kv_namespaces]]
 binding = "SESSIONS"
-id = "COLE_O_ID_DO_KV_AQUI"
+id = "7333edbc7e644d97a35bbd1b4f9b9a42"
 
 # Segredos (não ficam no repositório):
 #   npx wrangler secret put ROBLOX_CLIENT_ID
