@@ -1,0 +1,27 @@
+# Gera icones/index.json e texturas/index.json automaticamente a cada push.
+# O plugin e as galerias leem esses arquivos (sem limite da API do GitHub).
+name: Gerar índices
+on:
+  push:
+    branches: [main]
+    paths: ["icones/**", "texturas/**"]
+permissions:
+  contents: write
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gerar index.json
+        run: |
+          for d in icones texturas; do
+            [ -d "$d" ] || continue
+            (cd "$d" && ls | grep -iE '\.(png|jpe?g|webp|svg|gif)$' | jq -R -s -c 'split("\n")[:-1] | map({name: (sub("\\.[^.]+$";"") | gsub("[-_]+";" ")), file: .})' > index.json)
+          done
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add icones/index.json texturas/index.json
+          git diff --cached --quiet || git commit -m "chore: atualizar índices [skip ci]"
+          git push

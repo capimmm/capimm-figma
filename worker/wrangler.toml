@@ -1,0 +1,12 @@
+name = "capimm-figma-proxy"
+main = "index.js"
+compatibility_date = "2024-11-01"
+
+# Crie com: npx wrangler kv namespace create SESSIONS  → cole o id abaixo
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "COLE_O_ID_DO_KV_AQUI"
+
+# Segredos (não ficam no repositório):
+#   npx wrangler secret put ROBLOX_CLIENT_ID
+#   npx wrangler secret put ROBLOX_CLIENT_SECRET

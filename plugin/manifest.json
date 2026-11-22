@@ -1,0 +1,18 @@
+{
+  "name": "capimm-figma",
+  "id": "capimm-figma-dev",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "https://raw.githubusercontent.com",
+      "https://api.github.com",
+      "https://*.workers.dev",
+      "https://*.rbxcdn.com"
+    ],
+    "reasoning": "Biblioteca de ícones/texturas do GitHub e upload de imagens ao Roblox pelo proxy (Cloudflare Worker) do próprio usuário. Se usar domínio próprio no proxy, adicione-o aqui."
+  }
+}
